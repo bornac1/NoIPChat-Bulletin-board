@@ -11,13 +11,14 @@ namespace NoIPChat_Bulletin_board_client
     {
         public Client.Client? Client { get; set; }
         private Form1? form1 = null;
+        private string logfile = "Bulletin.log";
         public async Task Initialize()
         {
             if (Client != null)
             {
                 if (form1 == null)
                 {
-                    form1 = new();
+                    form1 = new(this);
                     form1.MdiParent = Client.main;
                 }
                 ToolStripMenuItem menuitem = new()
@@ -32,25 +33,45 @@ namespace NoIPChat_Bulletin_board_client
         {
             if(form1 == null)
             {
-                form1 = new();
+                form1 = new(this);
                 form1.MdiParent = Client?.main;      
             }
             form1.Show();
         }
         public async Task MessageReceived(Messages.Message message)
         {
-            if (message.Extra != null && message.Extra.TryGetValue("BBS", out byte[]? bbs) && bbs != null)
+            try
             {
-                MessageFormat.Message msg = await Messages.Processing.DeserializeGeneric<MessageFormat.Message>(bbs);
-                if (msg.Title != null)
+                if (message.Extra != null && message.Extra.TryGetValue("BBS", out byte[]? bbs) && bbs != null)
                 {
-                    if(form1 == null)
+                    MessageFormat.Message msg = await Messages.Processing.DeserializeGeneric<MessageFormat.Message>(bbs);
+                    if (msg.Title != null)
                     {
-                        form1 = new();
-                        form1.MdiParent = Client?.main;
+                        if (form1 == null)
+                        {
+                            form1 = new(this);
+                            form1.MdiParent = Client?.main;
+                        }
+                        form1.AddMessage(msg);
                     }
-                    form1.AddMessage(msg);
                 }
+            } catch (Exception ex)
+            {
+                await WriteLog(ex);
+            }
+        }
+        public async Task WriteLog(Exception ex)
+        {
+            string log = DateTime.Now.ToString("d.M.yyyy. H:m:s") + " " + ex.ToString() + Environment.NewLine;
+            try
+            {
+               await System.IO.File.AppendAllTextAsync(logfile, log);
+            }
+            catch (Exception ex1)
+            {
+                MessageBox.Show($"Plugin NoIPChat mail can't save log to file {logfile}.");
+                MessageBox.Show(log);
+                MessageBox.Show(ex1.ToString());
             }
         }
     }

@@ -8,8 +8,10 @@ namespace NoIPChat_Bulletin_board_client
     {
         private readonly BindingSource messages;
         private int rowindex = -1;
-        public Form1()
+        private Plugin plugin;
+        public Form1(Plugin plugin)
         {
+            this.plugin = plugin;
             messages = [];
             InitializeComponent();
             grid.DataSource = messages;
