@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>NoIPChat_Bulletin_board_server</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<SelfContained>true</SelfContained>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MessageFormat\MessageFormat.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Messages">
+      <HintPath>..\..\NoIPChat\Server\bin\Debug\net8.0\win-x64\Messages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Server_base">
+      <HintPath>..\..\NoIPChat\Server\bin\Debug\net8.0\win-x64\Server_base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
