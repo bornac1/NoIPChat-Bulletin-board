@@ -16,11 +16,10 @@ namespace NoIPChat_Bulletin_board_client
         {
             if (Client != null)
             {
-                if (form1 == null)
-                {
-                    form1 = new(this);
-                    form1.MdiParent = Client.main;
-                }
+                form1 ??= new(this)
+                    {
+                        MdiParent = Client.main
+                    };
                 ToolStripMenuItem menuitem = new()
                 {
                     Text = "Bulletin board"
@@ -31,11 +30,10 @@ namespace NoIPChat_Bulletin_board_client
         }
         private void Bulletinboard_Click(object? sender, EventArgs e)
         {
-            if(form1 == null)
-            {
-                form1 = new(this);
-                form1.MdiParent = Client?.main;      
-            }
+            form1 ??= new(this)
+                {
+                    MdiParent = Client?.main
+                };
             form1.Show();
         }
         public async Task MessageReceived(Messages.Message message)
@@ -47,11 +45,10 @@ namespace NoIPChat_Bulletin_board_client
                     MessageFormat.Message msg = await Messages.Processing.DeserializeGeneric<MessageFormat.Message>(bbs);
                     if (msg.Title != null)
                     {
-                        if (form1 == null)
-                        {
-                            form1 = new(this);
-                            form1.MdiParent = Client?.main;
-                        }
+                        form1 ??= new(this)
+                            {
+                                MdiParent = Client?.main
+                            };
                         form1.AddMessage(msg);
                     }
                 }
@@ -69,7 +66,7 @@ namespace NoIPChat_Bulletin_board_client
             }
             catch (Exception ex1)
             {
-                MessageBox.Show($"Plugin NoIPChat mail can't save log to file {logfile}.");
+                MessageBox.Show($"Plugin Bulletin board can't save log to file {logfile}.");
                 MessageBox.Show(log);
                 MessageBox.Show(ex1.ToString());
             }

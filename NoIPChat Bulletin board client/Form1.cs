@@ -17,6 +17,15 @@ namespace NoIPChat_Bulletin_board_client
             grid.DataSource = messages;
             //messages.ListChanged += Messages_ListChanged;
         }
+        /// <summary>
+        /// Constructor for debugging withou loading plugin.
+        /// </summary>
+        public Form1()
+        {
+            messages = [];
+            InitializeComponent();
+            grid.DataSource = messages;
+        }
         public void AddMessage(MessageFormat.Message message)
         {
             messages.Add(message);
