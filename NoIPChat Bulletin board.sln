@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageFormat", "MessageFormat\MessageFormat.csproj", "{579C99B2-A0B4-4446-B3F4-1F94F04DF4EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoIPChat Bulletin board client", "NoIPChat Bulletin board client\NoIPChat Bulletin board client.csproj", "{2ABBBE6D-4CC2-4074-B842-9CF8AC79633D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{579C99B2-A0B4-4446-B3F4-1F94F04DF4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{579C99B2-A0B4-4446-B3F4-1F94F04DF4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{579C99B2-A0B4-4446-B3F4-1F94F04DF4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{579C99B2-A0B4-4446-B3F4-1F94F04DF4EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ABBBE6D-4CC2-4074-B842-9CF8AC79633D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABBBE6D-4CC2-4074-B842-9CF8AC79633D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABBBE6D-4CC2-4074-B842-9CF8AC79633D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABBBE6D-4CC2-4074-B842-9CF8AC79633D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F1A5164-CDD7-4F68-8A48-AD4E37899529}
+	EndGlobalSection
+EndGlobal

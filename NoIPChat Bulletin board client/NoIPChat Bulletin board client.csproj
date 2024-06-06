@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>NoIPChat_Bulletin_board_client</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<SelfContained>true</SelfContained>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MessageFormat\MessageFormat.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Client">
+      <HintPath>..\..\NoIPChat\Client\bin\Debug\net8.0-windows7.0\win-x64\Client.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Messages">
+      <HintPath>..\..\NoIPChat\Server\bin\Debug\net8.0\win-x64\Messages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
